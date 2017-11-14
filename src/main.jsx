@@ -10,8 +10,12 @@ import { setStore as toasterSetStore } from './components/toaster/Toaster.react'
 import { setStore as apiQueueSetStore } from './api/apiRequestQueue';
 import App from './App';
 import './style/app.scss';
+import './style/less/AdminLTE.less';
 
-const store = createStore(appReducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(
+    appReducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 loaderSetStore(store);
 toasterSetStore(store);
 apiQueueSetStore(store);
@@ -21,13 +25,13 @@ store.dispatch({
 });
 
 ReactDom.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
 );
 
-setTimeout(()=> {
+setTimeout(() => {
     store.dispatch({
         type: 'APP_INITIALIZED'
     });
