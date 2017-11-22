@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const utils = require("./utils");
 const config = require("../config");
 const vueLoaderConfig = require("./vue-loader.conf");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 function resolve(dir) {
   return path.join(__dirname, "..", dir);
@@ -11,7 +12,11 @@ function resolve(dir) {
 
 module.exports = {
   entry: {
-    app: "./src/main.jsx"
+    app: [
+        "./src/main.jsx",
+        "./src/style/app.scss",
+        "./src/style/less/AdminLTE.less"
+    ]
   },
   output: {
     path: config.build.assetsRoot,
@@ -34,6 +39,9 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery",
       Popper: ["popper.js", "default"]
+    }),
+    new ExtractTextPlugin("[name].min.css", {
+        allChunks: true
     })
   ],
   module: {

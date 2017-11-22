@@ -9,8 +9,8 @@ import { setStore as loaderSetStore } from './components/loader/Loader.react';
 import { setStore as toasterSetStore } from './components/toaster/Toaster.react';
 import { setStore as apiQueueSetStore } from './api/apiRequestQueue';
 import App from './App';
-import './style/app.scss';
-import './style/less/AdminLTE.less';
+
+import 'bootstrap/less/bootstrap.less';
 
 const store = createStore(
     appReducers,
