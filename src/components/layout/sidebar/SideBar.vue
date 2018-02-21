@@ -25,28 +25,13 @@
             </form>
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="active treeview">
-                <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-                </ul>
-            </li>
-            <li class="header">LABELS</li>
-            <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
-            </ul>
+            <slot />
         </section>
     <!-- /.sidebar -->
     </aside>
 </template>
-<<script>
+<script>
 export default {
-  name: 'Sidebar'
+  name: 'Sidebar',
 };
 </script>

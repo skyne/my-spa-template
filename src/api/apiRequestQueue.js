@@ -1,6 +1,6 @@
 import shallowEqual from 'shallowequal';
 
-let Store = null;
+let Store = null; //eslint-disable-line no-unused-var
 export function setStore(store) {
     Store = store;
 }
