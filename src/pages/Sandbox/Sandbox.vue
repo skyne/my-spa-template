@@ -4,6 +4,7 @@
     <h2>Sandbox Page</h2>
     <h3 v-if="isAppInitializing">Application initializing</h3>
     <h3 v-else>Application initialized</h3>
+    <slot />
 
     <button v-on:click="onClick">BTN</button>
     <button v-on:click="showLoader">Show Loader</button>

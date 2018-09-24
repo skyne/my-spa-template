@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { showLoader } from '../../actions/loader.actions';
 
+import LazyLoadedImage from '../../components/common/LayzLoadedImage';
+
 import * as SandboxView from './Sandbox.vue';
 import withLoader from '../../components/loader';
 import withToaster from '../../components/toaster';
@@ -27,7 +29,11 @@ class Sandbox extends React.Component {
   render () {
     const View = this.view;
 
-    return (<View msg={'Hello'+this.state.counter} isAppInitializing={this.props.isAppInitializing} onClick={this.increment} showLoader={this.props.showLoader} addMessage={this.props.addMessage} />);
+    return (
+        <View msg={'Hello'+this.state.counter} isAppInitializing={this.props.isAppInitializing} onClick={this.increment} showLoader={this.props.showLoader} addMessage={this.props.addMessage} >
+            <LazyLoadedImage width="800px" height="600px" src="./user3-128x128.jpg" />
+        </View>
+    );
   }
 }
 
