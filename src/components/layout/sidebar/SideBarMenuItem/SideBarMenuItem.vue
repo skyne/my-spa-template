@@ -1,10 +1,10 @@
 <template>
-    <li>
-        <slot name="link" />
-    </li>
+  <li>
+    <slot name="link" />
+  </li>
 </template>
 <script>
 export default {
-  name: 'SideBarMenuItem',
+  name: 'SideBarMenuItem'
 };
 </script>

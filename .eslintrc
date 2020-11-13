@@ -3,58 +3,124 @@
       "browser": true,
       "es6": true
   },
-  "parser": "babel-eslint", 
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        // remove this line and the project parserOption setting for a much faster linting
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        // this is to enable import-export syntax and disable explicit ‘use strict’;
+        // which are standard in TS
+        "sourceType": "module",
+        // remove this line and disable type checking rules for much faster linting
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/prefer-namespace-keyword": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/ban-ts-ignore": "warn",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.vue"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:vue/recommended"
+      ]
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-      "ecmaVersion": 6,
+    "ecmaVersion": 6,
       "ecmaFeatures": {
           "experimentalObjectRestSpread": true,
           "jsx": true
       },
-      "sourceType": "module"
+    "sourceType": "module"
   },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "plugins": [
-      "react",
-      "html"
+    "@typescript-eslint",
+    "react"
   ],
   "rules": {
-      "brace-style": [2, "stroustrup", { 
-          "allowSingleLine": true 
-      }],
-      "quotes": [2, "single"],
-      "no-var": 2,
-      "no-const-assign": 2,
-      "no-debugger": 2,
-      "no-duplicate-imports": 2,
-      "prefer-const": 2,
-      "no-unreachable": 2,
-      "object-curly-spacing": [2, "always", {
-          "arraysInObjects": true
-      }],
-      "semi": [2, "always"],
-      "jsx-quotes": [2, "prefer-double"],
-      "react/jsx-curly-spacing": [2, "never"],
-      "react/jsx-key": 2,
-      "react/jsx-uses-vars": 2,
-
-      "curly": 1,
-      "no-console": 1,
-      "no-unused-vars": 1,
-      "react/display-name": [ 1, {"ignoreTranspilerName": false }],
-      "react/jsx-no-bind": 1,
-      "react/jsx-no-duplicate-props": 1,
-      "react/jsx-pascal-case": 1,
-      "react/jsx-uses-react": 1,
-      "react/no-danger": 1,
-      "react/no-did-mount-set-state": 1,
-      "react/no-did-update-set-state": 1,
-      "react/no-direct-mutation-state": 1,
-      "react/no-unknown-property": 1,
-      "react/prop-types": 1,
-      "react/react-in-jsx-scope": 1,
-      "react/self-closing-comp": [1, {
-          "html": false
-      }],
-
-      "react/jsx-no-literals": 0
+    "array-bracket-spacing": "warn",
+    "arrow-parens": ["error", "always"],
+    "arrow-spacing": "error",
+    "brace-style": "error",
+    "comma-dangle": ["error", "never"],
+    "comma-spacing": ["error", { "before": false, "after": true }],
+    "consistent-this": ["error", "self"],
+    "curly": ["error", "all"],
+    "dot-notation": "warn",
+    "eol-last": "warn",
+    "eqeqeq": "error",
+    "func-style": ["error", "expression"],
+    "func-call-spacing": "error",
+    "handle-callback-err": ["error", "^(e|err|error)$"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "key-spacing": ["warn", { "mode": "strict" }],
+    "keyword-spacing": "error",
+    "linebreak-style": ["error", "unix"],
+    "max-len": ["error", { "code": 200 }],
+    "new-parens": "error",
+    "no-array-constructor": "error",
+    "no-bitwise": "error",
+    "no-caller": "error",
+    "no-confusing-arrow": "error",
+    "no-console": "warn",
+    "no-empty": "error",
+    "no-eq-null": "warn",
+    "no-eval": "error",
+    "no-extend-native": "warn",
+    "no-lonely-if": "warn",
+    "no-multi-spaces": "warn",
+    "no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 1, "maxBOF": 0 }],
+    "no-new-object": "error",
+    "no-new-wrappers": "error",
+    "no-tabs": "error",
+    "no-trailing-spaces": "warn",
+    "no-process-exit": "error",
+    "no-prototype-builtins": "warn",
+    "no-return-assign": "error",
+    "no-shadow": "error",
+    "no-spaced-func": "error",
+    "no-undef": ["error", { "typeof": false }],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "ignoreRestSiblings": true }],
+    "no-useless-computed-key": "error",
+    "no-var": "error",
+    "object-curly-spacing": ["error", "always"],
+    "object-shorthand": ["error", "always"],
+    "one-var": ["error", "never"],
+    "prefer-arrow-callback": "error",
+    "prefer-const": ["error", { "destructuring": "all" }],
+    "quotes": ["error", "single"],
+    "semi": "error",
+    "semi-spacing": ["error", { "before": false, "after": true }],
+    "sort-vars": "warn",
+    "space-infix-ops": "error",
+    "space-before-blocks": ["warn", "always"],
+    "space-before-function-paren": ["warn", { "anonymous": "always", "named": "never", "asyncArrow": "always" }],
+    "space-in-parens": ["warn", "never"],
+    "space-unary-ops": "warn",
+    "strict": ["error", "global"],
+    "yoda": ["warn", "never"]
   }
 }

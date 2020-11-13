@@ -2,26 +2,38 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Sandbox Page</h2>
-    <h3 v-if="isAppInitializing">Application initializing</h3>
-    <h3 v-else>Application initialized</h3>
+    <h3 v-if="isAppInitializing">
+      Application initializing
+    </h3>
+    <h3 v-else>
+      Application initialized
+    </h3>
     <slot />
 
-    <button v-on:click="onClick">BTN</button>
-    <button v-on:click="showLoader">Show Loader</button>
-    <button v-on:click="() => addMessage(TOAST_TYPES.INFO.type, 'this is a test message')">Add Info Message</button>
-    <button v-on:click="() => addMessage(TOAST_TYPES.ERROR.type, 'this is a test message')">Add Error Message</button>
+    <button @click="onClick">
+      BTN
+    </button>
+    <button @click="showLoader">
+      Show Loader
+    </button>
+    <button @click="() => addMessage(TOAST_TYPES.INFO.type, 'this is a test message')">
+      Add Info Message
+    </button>
+    <button @click="() => addMessage(TOAST_TYPES.ERROR.type, 'this is a test message')">
+      Add Error Message
+    </button>
   </div>
 </template>
 
 <script>
 import TOAST_TYPES from '../../components/toaster/toastTypes';
 export default {
-    name: 'SandboxView',
-    props: ['msg', 'isAppInitializing', 'onClick', 'showLoader', 'addMessage'],
-    data: () => {
-        return { TOAST_TYPES };
-    }
-  };
+  name: 'SandboxView',
+  props: ['msg', 'isAppInitializing', 'onClick', 'showLoader', 'addMessage'],
+  data: () => {
+    return { TOAST_TYPES };
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

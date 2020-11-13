@@ -27,7 +27,7 @@ module.exports = {
         : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: [".js", ".jsx", ".vue", ".json", ".scss", ".less", ".css"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".vue", ".json", ".scss", ".less", ".css"],
     alias: {
       vue$: "vue/dist/vue.esm.js",
       "@": resolve("src")
@@ -67,6 +67,11 @@ module.exports = {
         test: /\.(js(x?))$/,
         loader: "babel-loader",
         include: [resolve("src"), resolve("test")]
+      },
+      {
+          test: /\.tsx?$/,
+          use: ["ts-loader"],
+          include: [resolve("src"), resolve("test")]
       },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,

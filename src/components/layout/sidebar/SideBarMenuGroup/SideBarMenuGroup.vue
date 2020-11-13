@@ -1,8 +1,10 @@
 <template>
-    <ul class="sidebar-menu">
-        <li class="header">Main Navigation</li>
-        <slot />
-    </ul>
+  <ul class="sidebar-menu">
+    <li class="header">
+      Main Navigation
+    </li>
+    <slot />
+  </ul>
 </template>
 <script>
 export default {

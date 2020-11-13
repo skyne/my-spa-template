@@ -14,8 +14,8 @@ height: 100%;
 
 const Wrapper = styled.div`
 position: relative;
-width: ${props => props.width ? props.width : '100%'};
-height: ${props => props.height ? props.height : '0'};
+width: ${(props) => (props.width ? props.width : '100%')};
+height: ${(props) => (props.height ? props.height : '0')};
 `;
 
 const ImgPlaceholder = styled.img`
@@ -33,24 +33,24 @@ z-index: 0;
 
 export default class LazyLoadedImage extends React.PureComponent {
     state = {
-        loaded: false,
+      loaded: false
     }
     imageWithPlaceholder = imagesFolder(this.props.src, true);
-    setLoaded = loaded => this.setState({ loaded })
+    setLoaded = (loaded) => this.setState({ loaded })
 
     render() {
-    const {
+      const {
         imageProps = {},
         alt,
         ...props
-    } = this.props;
+      } = this.props;
 
-    return (
+      return (
         <Wrapper {...props}>
-        <ImgFinal src={this.imageWithPlaceholder.src} alt={alt} {...imageProps} onLoad={() => this.setLoaded(true)} />
-        <ImgPlaceholder src={this.imageWithPlaceholder.trace} alt={alt} deactivated={this.state.loaded}/>
+          <ImgFinal src={this.imageWithPlaceholder.src} alt={alt} {...imageProps} onLoad={() => this.setLoaded(true)} />
+          <ImgPlaceholder src={this.imageWithPlaceholder.trace} alt={alt} deactivated={this.state.loaded}/>
         </Wrapper>
-    );
+      );
     }
 }
 

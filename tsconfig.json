@@ -1,0 +1,9 @@
+{
+    "extends": "@mocoding/react-app-common/tsconfig.base.json",
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "noImplicitAny": false,
+      "incremental": false,
+    },
+    "include": ["./src"]
+  }

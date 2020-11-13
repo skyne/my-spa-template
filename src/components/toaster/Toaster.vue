@@ -1,7 +1,7 @@
 <template>
-    <div class="message-floater">
-        <div class="message-flex">
-            <slot />
-        </div>
+  <div class="message-floater">
+    <div class="message-flex">
+      <slot />
     </div>
-</template>
+  </div>
+</template>;

@@ -8,9 +8,9 @@ export default class App extends React.Component {
     super();
   }
 
-  render () {
+  render() {
     return (
-        <Layout />
+      <Layout />
     );
   }
 }

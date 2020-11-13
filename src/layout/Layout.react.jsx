@@ -1,30 +1,31 @@
 import * as React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+
 
 import MenuBar from '../components/layout/menubar';
 import SideBar from '../components/layout/sidebar';
 import ContentWrapper from '../components/layout/contentWrapper';
+import { BrowserRouter } from 'react-router-dom';
 
 export default class Layout extends React.Component {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    render(){
-        return (
-                <Router>
-                    <div className="wrapper">
-                        <MenuBar />
-                        <SideBar />
-                        <ContentWrapper />
-                        <footer className="main-footer">
-                            <div className="pull-right hidden-xs">
-                            <b>Version</b> 2.0
-                            </div>
-                            <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-                        </footer>
-                    </div>
-                </Router>
-        );
-    }
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="wrapper">
+          <MenuBar />
+          <SideBar />
+          <ContentWrapper />
+          <footer className="main-footer">
+            <div className="pull-right hidden-xs">
+              <b>Version</b> 0.0.0-dev
+            </div>
+            <strong>Copyright &copy; 2020 Skyne.</strong> All rights reserved.
+          </footer>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
